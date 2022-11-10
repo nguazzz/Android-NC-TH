@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 import { PrimaryButton } from "../components/Button";
 
@@ -31,10 +31,19 @@ const OnBoardScreen = ({ navigation }) => {
             </Text>
           </View>
 
-          <PrimaryButton
-            onPress={() => navigation.navigate("Home")}
-            title="Explore"
-          />
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-around",
+            }}
+          >
+            <PrimaryButton
+              onPress={() => navigation.navigate("Home")}
+              title="Explore"
+            />
+            <Icon name="arrow-forward-ios" size={28} color="#f7dce7" />
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -47,27 +56,6 @@ const style = StyleSheet.create({
     paddingHorizontal: 50,
     justifyContent: "space-between",
     paddingBottom: 40,
-  },
-  indicatorContainer: {
-    height: 50,
-    flex: 1,
-    justifyContent: "center",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  currentIndicator: {
-    height: 12,
-    width: 30,
-    borderRadius: 10,
-    backgroundColor: COLORS.primary,
-    marginHorizontal: 5,
-  },
-  indicator: {
-    height: 12,
-    width: 12,
-    borderRadius: 6,
-    backgroundColor: COLORS.grey,
-    marginHorizontal: 5,
   },
 });
 
