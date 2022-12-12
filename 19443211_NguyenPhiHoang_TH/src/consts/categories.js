@@ -1,23 +1,23 @@
 const categories = [
   {
     id: "1",
-    name: "Triple Ice",
-    image: require("../assets/catergories/tripleice.png"),
+    name: "Nike",
+    image: require("../assets/catergories/nike.png"),
   },
   {
     id: "2",
-    name: "Ice Candy",
-    image: require("../assets/catergories/icecandy.png"),
+    name: "Adidas",
+    image: require("../assets/catergories/adidas.png"),
   },
   {
     id: "3",
-    name: "Ice Snack",
-    image: require("../assets/catergories/icesnack.png"),
+    name: "Reebok",
+    image: require("../assets/catergories/reebok.png"),
   },
   {
     id: "4",
-    name: "Pancake",
-    image: require("../assets/catergories/icepancake.png"),
+    name: "Vans",
+    image: require("../assets/catergories/vans.png"),
   },
 ];
 

@@ -17,7 +17,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
 import categories from "../../consts/categories";
-import foods from "../../consts/foods";
+import nike from "../../consts/nike";
 const { width } = Dimensions.get("screen");
 const cardWidth = width / 2 - 20;
 
@@ -49,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
               <View style={style.categoryBtnImgCon}>
                 <Image
                   source={category.image}
-                  style={{ height: 35, width: 35, resizeMode: "cover" }}
+                  style={{ height: 25, width: 25, resizeMode: "contain" }}
                 />
               </View>
               <Text
@@ -71,23 +71,26 @@ const HomeScreen = ({ navigation }) => {
       </ScrollView>
     );
   };
-  const Card = ({ food }) => {
+  const Card = ({ nike }) => {
     return (
       <TouchableHighlight
         underlayColor={COLORS.white}
         activeOpacity={0.9}
-        onPress={() => navigation.navigate("DetailsScreen", food)}
+        onPress={() => navigation.navigate("DetailsScreen", nike)}
       >
         <View style={style.card}>
           <View style={{ alignItems: "center", top: -40 }}>
-            <Image source={food.image} style={{ height: 120, width: 120 }} />
+            <Image
+              source={nike.image}
+              style={{ height: 120, width: 120, resizeMode: "contain" }}
+            />
           </View>
           <View style={{ marginHorizontal: 20 }}>
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-              {food.name}
+              {nike.name}
             </Text>
             <Text style={{ fontSize: 14, color: COLORS.grey, marginTop: 2 }}>
-              {food.ingredients}
+              {nike.type}
             </Text>
           </View>
           <View
@@ -99,7 +102,7 @@ const HomeScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-              ${food.price}
+              ${nike.price}
             </Text>
             <View style={style.addToCartBtn}>
               <Icon name="add" size={20} color={COLORS.white} />
@@ -124,8 +127,8 @@ const HomeScreen = ({ navigation }) => {
           </Text>
         </View>
         <Image
-          source={require("../../assets/bell.jpg")}
-          style={{ height: 50, width: 50, borderRadius: 25 }}
+          source={require("../../assets/bell.png")}
+          style={{ height: 30, width: 30, borderRadius: 25 }}
         />
       </View>
       <View
@@ -139,7 +142,7 @@ const HomeScreen = ({ navigation }) => {
           <Icon name="search" size={28} />
           <TextInput
             style={{ flex: 1, fontSize: 18 }}
-            placeholder="Search for food"
+            placeholder="Search..."
           />
         </View>
         <View style={style.sortBtn}>
@@ -153,9 +156,7 @@ const HomeScreen = ({ navigation }) => {
           paddingTop: 15,
         }}
       >
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          Popular Ice-cream
-        </Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Popular branch</Text>
       </View>
       <View>
         <ListCategories />
@@ -163,8 +164,8 @@ const HomeScreen = ({ navigation }) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={2}
-        data={foods}
-        renderItem={({ item }) => <Card food={item} />}
+        data={nike}
+        renderItem={({ item }) => <Card nike={item} />}
       />
     </SafeAreaView>
   );

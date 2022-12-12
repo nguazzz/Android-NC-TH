@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, ImageBackground } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import COLORS from "../../consts/colors";
@@ -6,47 +6,66 @@ import { PrimaryButton } from "../components/Button";
 
 const OnBoardScreen = ({ navigation }) => {
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.primary }}>
-      <View style={{ height: "100%" }}>
-        <Image
+    <ImageBackground
+      source={{ uri: "https://wallpaperaccess.com/full/1231742.png" }}
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <SafeAreaView
+        style={{
+          flex: 1,
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
+        <View
           style={{
-            width: "100%",
-            resizeMode: "contain",
-            top: -150,
+            marginTop: 200,
+            height: "70%",
+            alignItems: "center",
+            justifyContent: "center",
           }}
-          source={require("../../assets/onBoardImage.jpg")}
-        />
-
-        <View style={style.textContainer}>
-          <View>
-            <Text
+        >
+          <View style={style.textContainer}>
+            <View
               style={{
-                fontSize: 32,
-                fontWeight: "bold",
-                textAlign: "center",
-                color: COLORS.white,
+                borderRadius: 15,
+                backgroundColor: COLORS.pink,
+                padding: 5,
               }}
             >
-              Ice Cream Shop
-            </Text>
-          </View>
+              <Text
+                style={{
+                  fontSize: 42,
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  color: COLORS.dark,
+                }}
+              >
+                Sneaker Head
+              </Text>
+            </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-around",
-            }}
-          >
-            <PrimaryButton
-              onPress={() => navigation.navigate("Home")}
-              title="Explore"
-            />
-            <Icon name="arrow-forward-ios" size={28} color="#f7dce7" />
+            <View
+              style={{
+                alignItems: "center",
+              }}
+            >
+              <PrimaryButton
+                onPress={() => navigation.navigate("Home")}
+                title="Explore"
+                style={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              />
+            </View>
           </View>
         </View>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 

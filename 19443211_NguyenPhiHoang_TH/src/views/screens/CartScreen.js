@@ -1,31 +1,37 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, Image} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import COLORS from '../../consts/colors';
-import foods from '../../consts/foods';
-import {PrimaryButton} from '../components/Button';
+import React from "react";
+import { SafeAreaView, StyleSheet, View, Text, Image } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import COLORS from "../../consts/colors";
+import nike from "../../consts/nike";
+import { SecondaryButton } from "../components/Button";
 
-const CartScreen = ({navigation}) => {
-  const CartCard = ({item}) => {
+const CartScreen = ({ navigation }) => {
+  const CartCard = ({ item }) => {
     return (
       <View style={style.cartCard}>
-        <Image source={item.image} style={{height: 80, width: 80}} />
+        <Image
+          source={item.image}
+          style={{ height: 80, width: 100, resizeMode: "contain" }}
+        />
         <View
           style={{
             height: 100,
             marginLeft: 10,
             paddingVertical: 20,
             flex: 1,
-          }}>
-          <Text style={{fontWeight: 'bold', fontSize: 16}}>{item.name}</Text>
-          <Text style={{fontSize: 13, color: COLORS.grey}}>
+          }}
+        >
+          <Text style={{ fontWeight: "bold", fontSize: 16 }}>{item.name}</Text>
+          <Text style={{ fontSize: 13, color: COLORS.grey }}>
             {item.ingredients}
           </Text>
-          <Text style={{fontSize: 17, fontWeight: 'bold'}}>${item.price}</Text>
+          <Text style={{ fontSize: 17, fontWeight: "bold" }}>
+            ${item.price}
+          </Text>
         </View>
-        <View style={{marginRight: 20, alignItems: 'center'}}>
-          <Text style={{fontWeight: 'bold', fontSize: 18}}>3</Text>
+        <View style={{ marginRight: 20, alignItems: "center" }}>
+          <Text style={{ fontWeight: "bold", fontSize: 18 }}>3</Text>
           <View style={style.actionBtn}>
             <Icon name="remove" size={25} color={COLORS.white} />
             <Icon name="add" size={25} color={COLORS.white} />
@@ -35,32 +41,33 @@ const CartScreen = ({navigation}) => {
     );
   };
   return (
-    <SafeAreaView style={{backgroundColor: COLORS.white, flex: 1}}>
+    <SafeAreaView style={{ backgroundColor: COLORS.white, flex: 1 }}>
       <View style={style.header}>
         <Icon name="arrow-back-ios" size={28} onPress={navigation.goBack} />
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>Cart</Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Cart</Text>
       </View>
       <FlatList
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 80}}
-        data={foods}
-        renderItem={({item}) => <CartCard item={item} />}
-        ListFooterComponentStyle={{paddingHorizontal: 20, marginTop: 20}}
+        contentContainerStyle={{ paddingBottom: 80 }}
+        data={nike}
+        renderItem={({ item }) => <CartCard item={item} />}
+        ListFooterComponentStyle={{ paddingHorizontal: 20, marginTop: 20 }}
         ListFooterComponent={() => (
-          <View>
+          <View style={{ flexDirection: "column" }}>
             <View
               style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
+                flexDirection: "row",
+                justifyContent: "space-between",
                 marginVertical: 15,
-              }}>
-              <Text style={{fontSize: 18, fontWeight: 'bold'}}>
+              }}
+            >
+              <Text style={{ fontSize: 18, fontWeight: "bold" }}>
                 Total Price
               </Text>
-              <Text style={{fontSize: 18, fontWeight: 'bold'}}>$50</Text>
+              <Text style={{ fontSize: 18, fontWeight: "bold" }}>$50000</Text>
             </View>
-            <View style={{marginHorizontal: 30}}>
-              <PrimaryButton title="CHECKOUT" />
+            <View style={{ marginHorizontal: 10, alignItems: "center" }}>
+              <SecondaryButton title="CHECKOUT" />
             </View>
           </View>
         )}
@@ -71,8 +78,8 @@ const CartScreen = ({navigation}) => {
 const style = StyleSheet.create({
   header: {
     paddingVertical: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginHorizontal: 20,
   },
   cartCard: {
@@ -83,8 +90,8 @@ const style = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 20,
     paddingHorizontal: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   actionBtn: {
     width: 80,
@@ -92,9 +99,9 @@ const style = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 30,
     paddingHorizontal: 5,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
   },
 });
 
